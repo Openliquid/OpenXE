@@ -135,7 +135,7 @@ final class StringUtil
             '/\s+/'                  => '_',    //space
             '/:\\\/'                 => '-',    //drive name
             '/\\\\\\\/'              => '-',    //unc path
-            '/[\\/\\\<>:|]/'         => '-',    //seperators and reserved
+            '/[\\/\\\<>:|]/'         => '-',    // separators and reserved
             '/"/'                    => '\'',
             '/[\*\?&]+/'             => '',     //other special chars
             '/[\x{0000}-\x{001F}]/u' => '',
@@ -180,7 +180,7 @@ final class StringUtil
      * @example "foo Bar BaZ" => "Foo Bar Baz"
      *
      * @param string $value
-     * @param string $delimiters all characters that seperate words
+     * @param string $delimiters all characters that separate words
      *
      * @return string
      */
@@ -208,7 +208,7 @@ final class StringUtil
     }
 
     /**
-     * Format a nubmer of Bytes to KB, MB etc.
+     * Format a number of Bytes to KB, MB etc.
      *
      * @example formatBytes(1024, ' ') -> '1,0 KB'
      *
