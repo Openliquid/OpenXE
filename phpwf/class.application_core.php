@@ -63,6 +63,11 @@ class ApplicationCore
     $registry->add('LegacyApplication', $this);
     $this->Container = $registry->get('ServiceContainer');
 
+    // Initialise monitoring module to collect cache statistics
+    if (class_exists('Xentral\\Modules\\Monitoring\\CacheMonitor')) {
+      new \Xentral\Modules\Monitoring\CacheMonitor($this);
+    }
+
     $this->getter = array(
       'User'=>array('class'=>'User','app'=>true),
       'Tpl'=>array('class'=>'TemplateParser','app'=>true),

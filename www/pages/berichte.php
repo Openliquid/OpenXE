@@ -796,5 +796,28 @@ class Berichte extends GenBerichte {
 
       $this->app->Tpl->Add('MESSAGE', $message);
   }
+
+  /**
+   * Example: get cached sales report using prepared statements.
+   *
+   * @param string $startDate
+   * @param string $endDate
+   *
+   * @return array|null
+   */
+  public function GetSalesReportCached($startDate, $endDate)
+  {
+    $cache = new \Xentral\Components\Cache\ReportCache($this->app);
+    $key = 'sales_report_' . $startDate . '_' . $endDate;
+    return $cache->remember($key, 3600, function() use ($startDate, $endDate) {
+      $mysqli = $this->app->DB->connection;
+      $sql = 'SELECT SUM(gesamtbetrag) AS summe FROM rechnung WHERE datum BETWEEN ? AND ?';
+      $stmt = $mysqli->prepare($sql);
+      $stmt->bind_param('ss', $startDate, $endDate);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      return $result->fetch_assoc();
+    });
+  }
 }
 
