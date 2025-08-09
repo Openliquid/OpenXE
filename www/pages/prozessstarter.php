@@ -357,7 +357,10 @@ class Prozessstarter extends GenProzessstarter {
     if(empty($data)) {
       return [];
     }
-    $seconds = 60 * $interval->i;
+    $seconds = $interval->s
+             + 60 * $interval->i
+             + 3600 * $interval->h
+             + 86400 * $interval->d;
     foreach($data as $key => $arr) {
       $cronjobIntervals = [];
       foreach($arr as $rowIndex => $row) {
