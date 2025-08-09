@@ -709,6 +709,7 @@ class RechnungPDF extends BriefpapierCustom {
       $this->filename = $datum2."_RE".$belegnr.".pdf";
 
     $this->setBarcode($belegnr);
+    $this->app->erp->RunHook('onGenerateInvoice', 2, $id, $this->filename);
   }
 
 

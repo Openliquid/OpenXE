@@ -15,6 +15,7 @@ function xentral_autoloader($class) {
     'Remote'=>__DIR__.'/www/lib/class.remote.php',
     'erpAPI'=>__DIR__.'/www/lib/class.erpapi.php',
     'erpooSystem'=>__DIR__.'/www/eproosystem.php',
+    'EInvoiceGenerator'=>__DIR__.'/www/lib/class.einvoicegenerator.php',
     'erpAPICustom'=>__DIR__.'/www/lib/class.erpapi_custom.php',
     'RemoteCustom'=>__DIR__.'/www/lib/class.remote_custom.php',
     'YUI'=>__DIR__.'/phpwf/plugins/class.yui.php',
