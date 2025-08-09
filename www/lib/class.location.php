@@ -110,10 +110,10 @@ class Location
         $url = substr($url, $posIndex);
       }
       $urla = parse_url($url);
-      $urla['query'] = $this->prepareQuery($urla['query']);
+      $urla['query'] = isset($urla['query']) ? $this->prepareQuery($urla['query']) : '';
 
-      $url = $this->server.'?'
-        .(!empty($urla['query'])?$urla['query']:'')
+      $url = $this->server
+        .(!empty($urla['query'])?'?'.$urla['query']:'')
         .(!empty($urla['fragment'])?'#'.$urla['fragment']:'');
       return $url;
     }
