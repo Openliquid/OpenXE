@@ -3467,3 +3467,7 @@ $variablen['Kosten Gesamt']['default']['default'] = 'Total costs';
 $variablen['Gruppe/Verband']['default']['default'] = 'Group/organization';
 $variablen['Anzahl Auftr&auml;ge']['default']['default'] = 'Number of sales orders';
 $variablen['Kd.-/Verbands-Nr.']['default']['default'] = 'Customer/org. no.';
+$variablen['Zeiterfassung']['menu']['default'] = 'Time tracking';
+$variablen['Zeiterfassung']['default']['default'] = 'time tracking';
+$variablen['Urlaubsplanung']['menu']['default'] = 'Vacation planner';
+$variablen['Urlaubsplanung']['default']['default'] = 'vacation planner';

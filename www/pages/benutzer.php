@@ -114,6 +114,7 @@ class Benutzer
     $this->app->erp->MenuEintrag("index.php?module=benutzer&action=history","Historie");
     $this->app->erp->MenuEintrag("index.php?module=benutzer&action=create","Neuen Benutzer anlegen");
     $this->app->erp->MenuEintrag("index.php?module=einstellungen&action=list","Zur&uuml;ck zur &Uuml;bersicht");
+    $this->app->erp->MenuEintrag("index.php?module=timetracker&action=calendar","Zeiterfassung");
 
     $this->app->YUI->TableSearch('USER_TABLE',"userlist");
     $this->app->Tpl->Parse('PAGE', "benutzer_list.tpl");
