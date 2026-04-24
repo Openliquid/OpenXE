@@ -1,0 +1,105 @@
+[gd_scene load_steps=8 format=3 uid="uid://openxe_main"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/Unit.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/Headquarters.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://scenes/ResourceNode.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://scenes/Beacon.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://scenes/PingMarker.tscn" id="6"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1")
+unit_scene = ExtResource("2")
+ping_scene = ExtResource("6")
+
+[node name="Units" type="Node2D" parent="."]
+
+[node name="Structures" type="Node2D" parent="."]
+
+[node name="PlayerHQ" parent="Structures" instance=ExtResource("3")]
+position = Vector2(250, 700)
+
+[node name="EnemyHQ" parent="Structures" instance=ExtResource("3")]
+position = Vector2(1350, 180)
+team_id = 1
+
+[node name="Resources" type="Node2D" parent="."]
+
+[node name="NodeA" parent="Resources" instance=ExtResource("4")]
+position = Vector2(780, 470)
+
+[node name="NodeB" parent="Resources" instance=ExtResource("4")]
+position = Vector2(860, 520)
+
+[node name="NodeC" parent="Resources" instance=ExtResource("4")]
+position = Vector2(720, 560)
+
+[node name="Beacon" parent="." instance=ExtResource("5")]
+position = Vector2(800, 450)
+
+
+[node name="Pings" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(800, 450)
+enabled = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="SelectionRect" type="ColorRect" parent="UI"]
+visible = false
+color = Color(0.2, 0.8, 1, 0.2)
+
+[node name="SelectionBorder" type="Panel" parent="UI/SelectionRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HUD" type="MarginContainer" parent="UI"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 760.0
+offset_bottom = 140.0
+
+[node name="VBox" type="VBoxContainer" parent="UI/HUD"]
+layout_mode = 2
+
+[node name="MoneyLabel" type="Label" parent="UI/HUD/VBox"]
+text = "Credits: 300"
+
+[node name="DoctrineLabel" type="Label" parent="UI/HUD/VBox"]
+text = "Doktrin: ungewählt (F1/F2/F3)"
+
+[node name="ObjectiveLabel" type="Label" parent="UI/HUD/VBox"]
+text = "Sekundärziel: Beacon halten"
+
+[node name="InfoLabel" type="Label" parent="UI/HUD/VBox"]
+text = ""
+
+[node name="PlayerSoldierA" parent="Units" instance=ExtResource("2")]
+position = Vector2(340, 680)
+team_id = 0
+role = 0
+
+[node name="PlayerSoldierB" parent="Units" instance=ExtResource("2")]
+position = Vector2(360, 725)
+team_id = 0
+role = 0
+
+[node name="PlayerHarvester" parent="Units" instance=ExtResource("2")]
+position = Vector2(300, 740)
+team_id = 0
+can_harvest = true
+attack_damage = 2.0
+max_health = 80.0
+role = 1
+
+[node name="EnemyGuardA" parent="Units" instance=ExtResource("2")]
+position = Vector2(1250, 240)
+team_id = 1
+role = 0
+
+[node name="EnemyGuardB" parent="Units" instance=ExtResource("2")]
+position = Vector2(1310, 260)
+team_id = 1
+role = 3
