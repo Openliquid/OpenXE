@@ -1,0 +1,23 @@
+; Engine configuration file.
+; Godot 4.x
+
+config_version=5
+
+[application]
+config/name="OpenXE RTS Godot Starter"
+run/main_scene="res://scenes/Main.tscn"
+
+[display]
+window/size/viewport_width=1600
+window/size/viewport_height=900
+window/stretch/mode="canvas_items"
+
+[input]
+select={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"device":-1,"button_index":1,"pressed":false)]
+}
+command={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"device":-1,"button_index":2,"pressed":false)]
+}
